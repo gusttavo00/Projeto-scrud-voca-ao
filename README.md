@@ -28,7 +28,6 @@ O sistema permite **cadastrar, listar, editar e remover produtos**, oferecendo u
    git clone https://github.com/seu-usuario/nome-do-repo.git
 Crie e ative um ambiente virtual:
 
-- bash
 - python -m venv .venv
 - source .venv/bin/activate   # Linux/Mac
 - .venv\Scripts\activate      # Windows
