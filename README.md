@@ -22,11 +22,6 @@ O sistema permite **cadastrar, listar, editar e remover produtos**, oferecendo u
 
 ---
 
-## 📸 Demonstração
-> Adicione aqui prints da tela de **listagem**, **cadastro** e **edição** dos produtos.  
-
----
-
 ## ⚙️ Como executar o projeto
 1. Clone este repositório:  
    ```bash
