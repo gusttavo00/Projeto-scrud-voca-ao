@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='editar.css') }}">
+
+    <title>Editar Produtos</title>
+</head>
+    <div class="background-container">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+        <div class="shape shape-6"></div>
+    </div>
+  <nav class="navbar">
+    <a class="back-btn" href="/produtos">Voltar</a>
+    <h1>Editar Produto</h1>
+</nav>
+<body>
+    <main class="container">
+    <form action="/atualizar/{{ produto.codigo }}" method="post"> <!-- Formulário para editar o produto -->
+        <label>Código:</label><br> <!-- Campo de entrada para o código do produto (somente leitura) -->
+        <input type="number" name="codigo" value="{{ produto.codigo }}"  step="1" readonly title="Código do produto" placeholder="Código do produto"><br><br>
+
+        <label>Nome:</label><br> <!-- Campo de entrada para o nome do produto -->
+        <input type="text" name="nome" value="{{ produto.nome }}" required title="Nome do produto" placeholder="Nome do produto"><br><br> 
+
+        <label>Preço:</label><br>
+        <input type="number" name="preco" value="{{ produto.preco }}" step="0.01" required title="Preço do produto" placeholder="Preço do produto"><br><br>
+
+        <label>Quantidade:</label><br>
+        <input type="number" name="quantidade" value="{{ produto.quantidade }}" required title="Quantidade do produto" placeholder="Quantidade do produto"><br><br>
+
+        <button type="submit">Salvar Alterações</button> <!-- Botão para enviar o formulário -->
+    </form>
+    </main>
+    <br>
+</body>
+
+</html>
