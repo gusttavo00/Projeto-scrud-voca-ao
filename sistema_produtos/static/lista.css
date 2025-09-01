@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Define variáveis para cores e fontes */
+:root {
+  --font-main: 'Poppins', sans-serif;
+  --color-primary-text: #1a1a1a;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-background: #f0f2f5;
+  --color-card-bg: rgba(255, 255, 255, 0.1);
+  --color-navbar-bg: rgba(255, 255, 255, 0.027);
+  --color-border: rgba(0, 0, 0, 0.147);
+  --color-success: #d4edda;
+  --color-success-text: #155724;
+  --color-error: #f8d7da;
+  --color-error-text: #721c24;
+  --color-delete-bg: rgba(220, 53, 69, 0.25);
+  --color-delete-text: #ff0000;
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-main: 0 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Reset básico e estilos do corpo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+body {
+  background-color: var(--color-background);
+  padding: 10px;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 15px; /* Tamanho ajustado */
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0 0 15px 15px;
+  background: var(--color-navbar-bg);
+  background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.25) 100%);
+  background-size: 200% 200%;
+  animation: liquidMove 8s ease-in-out infinite;
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  box-shadow: var(--shadow-main);
+}
+
+.navbar h1 {
+  font-size: 1.5rem; /* Tamanho ajustado */
+  font-weight: 700;
+  color: var(--color-primary-text);
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  order: 2;
+}
+
+.back-btn,
+.btnedit {
+  padding: 10px 14px; /* Tamanho ajustado */
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.12);
+  background-image: linear-gradient(125deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.25) 100%);
+  background-size: 200% 200%;
+  animation: liquidButton 6s ease-in-out infinite;
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: var(--color-primary-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.back-btn {
+  order: 1;
+  margin-right: auto;
+}
+
+.btnedit {
+  order: 3;
+  margin-left: auto;
+}
+
+.back-btn:hover,
+.btnedit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+}
+
+.table-card {
+  margin: 80px auto 20px;
+  padding: 15px;
+  border-radius: 12px;
+  background: var(--color-card-bg);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+/* Tabela Mobile-First (Transforma em Cards) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  display: none; /* Esconde o cabeçalho em mobile */
+}
+
+tr {
+  display: block;
+  border: 1px solid var(--color-black);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: var(--shadow-subtle);
+  background-color: var(--color-white);
+  padding: 10px;
+}
+
+td {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+td::before {
+  content: attr(data-label); /* Usa o atributo data-label como "cabeçalho" */
+  font-weight: 600;
+  margin-right: 10px;
+  color: var(--color-primary-text);
+  min-width: 100px;
+}
+
+.table-actions {
+  text-align: right;
+  justify-content: flex-end;
+}
+
+/* Botão de exclusão */
+.btn-delete {
+  background: var(--color-delete-bg);
+  color: var(--color-delete-text);
+  border: 1px solid var(--color-black);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  font-size: 0.8rem;
+}
+
+.btn-delete:hover {
+  transform: translateY(-2px);
+  background-color: rgba(220, 53, 69, 0.6);
+  color: black;
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.8);
+}
+
+/* Mensagens de flash */
+ul.flash-messages {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  width: 90%;
+  max-width: 300px;
+}
+
+ul.flash-messages li {
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  background-color: var(--color-success);
+  color: var(--color-success-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+ul.flash-messages li.error {
+  background-color: var(--color-error);
+  color: var(--color-error-text);
+}
+
+/* Animações */
+@keyframes liquidButton {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes liquidMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Media query para telas maiores (desktops e tablets) --- */
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+    overflow-x: auto;
+  }
+  
+  .navbar {
+    padding: 15px 20px;
+    height: 18%;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .navbar h1 {
+    font-size: 1.8rem;
+  }
+  
+  .back-btn,
+  .btnedit {
+    padding: 10px 16px;
+    border-radius: 12px;
+  }
+  
+  .table-card {
+    margin: 100px auto 20px;
+    padding: 20px;
+    border-radius: 16px;
+    overflow-x: auto; /* Adicionado para permitir scroll em tabelas grandes */
+  }
+
+  /* Tabela tradicional para desktop */
+  table {
+    min-width: 600px;
+    display: table;
+  }
+
+  thead {
+    display: table-header-group; /* Mostra o cabeçalho em desktop */
+  }
+
+  tr {
+    display: table-row;
+    border: 1px solid var(--color-black);
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  tr:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  th,
+  td {
+    padding: 14px 18px;
+    font-size: 1rem;
+    display: table-cell;
+    border: 1px solid var(--color-black);
+  }
+
+  td::before {
+    content: none; /* Remove o "cabeçalho" antes do conteúdo */
+  }
+
+  .btn-delete {
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+  
+  ul.flash-messages {
+    top: 20px;
+    right: 20px;
+    width: 300px;
+  }
+  
+  ul.flash-messages li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+}

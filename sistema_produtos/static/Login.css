@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --accent-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* background da tela de login*/
+.container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Ocupa a largura total no mobile */
+    border-radius: 25px;
+    padding: 25px;
+    /* Padding menor para otimizar espaço */
+    background: rgba(255, 255, 255, 0);
+    background-image: linear-gradient(125deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.105) 100%);
+    background-size: 200% 200%;
+    animation: liquidMove 10s ease-in-out infinite;
+    backdrop-filter: blur(10px) saturate(220%) contrast(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(220%) contrast(120%);
+    border: 1px solid rgba(0, 0, 0, 0.908);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0);
+
+    transition: transform 0.4s ease;
+}
+
+.container:hover {
+    transform: translateY(-1px);
+}
+
+.container h1 {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 600;
+    /* mais forte */
+    letter-spacing: 1px;
+    /* espaçamento leve */
+    background: linear-gradient(135deg, #ffffff 0%, #d1e8ff 100%);
+    background-clip: #00000026;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+
+/* local onde digita como nome/usuario */
+.input-box {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+.input-box input {
+    width: 100%;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    outline: none;
+    font-size: 16px;
+    color: #1c1c1c;
+    padding: 0 40px 0 20px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-box input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.input-box input::placeholder {
+    color: black;
+    font-weight: 300;
+}
+
+.input-box i {
+    color: #1c1c1c;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* local onde e esqueci senha e salvar senha*/
+.remember-forgot {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 10px 0 15px;
+    font-size: 14px;
+}
+
+.remember-forgot label {
+    color: #1c1c1c;
+    ;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.remember-forgot label input {
+    accent-color: #1c1c1c;
+    margin-right: 1px;
+}
+
+.remember-forgot a {
+    text-decoration: none;
+    color: #1c1c1c;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.remember-forgot a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.Login {
+    width: 100%;
+    height: 45px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.35);
+    background-image: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.20) 100%);
+    background-size: 200% 200%;
+    animation: liquidButton 6s ease-in-out infinite;
+    backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(120%);
+    border: 1px solid rgba(0, 0, 0, 0.508);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.Login:hover {
+    transform: translateY(-2px);
+
+}
+
+
+ul.flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    width: 300px;
+    max-width: 90%;
+}
+
+/* Cada mensagem */
+ul.flash-messages li {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    background-color: #d4edda;
+    /* sucesso */
+    color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+/* Erro */
+ul.flash-messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+@keyframes liquidMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Tablets (landscape) e Telas Maiores */
+@media (min-width: 768px) {
+    .container {
+        width: 420px;
+        /* Largura fixa para telas maiores */
+        padding: 35px 45px;
+        /* Padding original para mais espaço */
+    }
+
+    .container:hover {
+        transform: translateY(-5px);
+        /* Adiciona hover de volta */
+    }
+
+    .container h1 {
+        font-size: 40px;
+        /* Tamanho original para telas maiores */
+        margin-bottom: 25px;
+    }
+
+    .input-box {
+        margin: 25px 0;
+        /* Espaçamento original */
+    }
+
+    .input-box input {
+        height: 50px;
+        /* Altura original */
+    }
+
+    .input-box i {
+        right: 20px;
+        font-size: 20px;
+    }
+
+    .remember-forgot {
+        flex-direction: row;
+        /* Volta a alinhar lado a lado */
+        justify-content: space-between;
+        align-items: center;
+        margin: -10px 0 15px;
+    }
+
+    .remember-forgot a {
+        display: flex;
+        align-items: end;
+        justify-content: end;
+
+    }
+
+    .Login {
+        height: 50px;
+        /* Altura original */
+    }
+
+    .Login:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+        /* Adiciona hover de volta */
+    }
+
+    .register-link {
+        margin-top: 25px;
+    }
+}

@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #f0f2f500;
+    --primary-color: #0088ff;
+    --secondary-color: #0088ffc7;
+    --accent-color: #5b5b5b9c;
+    --primary-color-text: black;
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --input-bg-color: #e9ecef6a;
+    --card-bg-color: rgba(255, 255, 255, 0.207);
+}
+
+body {
+  font-family: black;
+  background-color: var(--color-background);
+  padding: 20px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 18%;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border: rgba(0, 0, 0, 0.362);
+  border-radius: 0 0 20px 20px;
+  background: rgba(255, 255, 255, 0.027);
+  background-image: linear-gradient(125deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.25) 100%);
+  background-size: 200% 200%;
+  animation: liquidMove 8s ease-in-out infinite;
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+.navbar {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.12);
+  background-image: linear-gradient(125deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.25) 100%);
+  background-size: 200% 200%;
+  animation: liquidButton 6s ease-in-out infinite;
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: var(--white);
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.navbar h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+  text-align: center;
+  flex-grow: 1;
+  order: 2;
+}
+
+
+.back-btn {
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.159);
+  background: rgba(255, 255, 255, 0.12);
+  background-image: linear-gradient(125deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.25) 100%);
+  background-size: 200% 200%;
+  animation: liquidButton 6s ease-in-out infinite;
+  backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%) contrast(120%);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  color: var(--white);
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  color: black;
+}
+
+.back-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgb(0, 0, 0);
+}
+
+.container {
+    width: 70%;
+    max-width: 500px;
+    background-color: var(--card-bg-color);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 0, 0, 0.122);
+    box-shadow: 0 10px 40px var(--shadow-color);
+    padding: 30px;
+}
+
+.container {
+    margin-top: 120px;
+}
+form label {
+    position: relative;
+    display: flex;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--primary-color-text);
+}
+
+
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #00000059;
+    border-radius: 10px;
+    background-color: var(--input-bg-color);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+form input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    background-color: var(--white);
+}
+
+form button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.453);
+    background: rgba(255,255,255,0.12);
+    background-image: linear-gradient(
+        125deg,
+        rgba(255,255,255,0.35) 0%,
+        rgba(255,255,255,0.05) 50%,
+        rgba(255,255,255,0.25) 100%
+    );
+    background-size: 200% 200%;
+    animation: liquidButton 6s ease-in-out infinite;
+    backdrop-filter: blur(15px) saturate(180%) contrast(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%) contrast(120%);
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.35);
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Flash messages */
+ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #e0f0ff; /* azul suave */
+    color: #004085;
+    text-align: center;
+}
+
+@keyframes liquidButton {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes corner-fade {
+  from {
+    transform: scale(0.8) translate(50px, 50px);
+    opacity: 0.6;
+  }
+
+  to {
+    transform: scale(1.1) translate(-20px, -20px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes liquidMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
