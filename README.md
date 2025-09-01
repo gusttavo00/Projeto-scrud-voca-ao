@@ -28,23 +28,19 @@ O sistema permite **cadastrar, listar, editar e remover produtos**, oferecendo u
    git clone https://github.com/seu-usuario/nome-do-repo.git
 Crie e ative um ambiente virtual:
 
-bash
-Copiar código
-python -m venv .venv
-source .venv/bin/activate   # Linux/Mac
-.venv\Scripts\activate      # Windows
+- bash
+- python -m venv .venv
+- source .venv/bin/activate   # Linux/Mac
+- .venv\Scripts\activate      # Windows
+  
 Instale as dependências:
 
-bash
-Copiar código
-pip install flask
+- pip install flask
+  
 Execute o servidor:
 
-bash
-Copiar código
-flask run
+- app.py start
+
 Acesse no navegador:
 
-cpp
-Copiar código
 http://127.0.0.1:5000
